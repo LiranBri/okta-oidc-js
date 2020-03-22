@@ -105,16 +105,6 @@ describe('AuthService configuration', () => {
     expect(createInstance).toThrow()
   });
 
-  it('should throw if the redirect_uri is not provided', () => {
-    function createInstance () {
-      return new AuthService({
-        issuer: 'https://foo/oauth2/default',
-        client_id: 'foo'
-      });
-    }
-    expect(createInstance).toThrow();
-  });
-
   it('should throw if a redirect_uri matching {redirectUri} is provided', () => {
     function createInstance () {
       return new AuthService({

@@ -124,9 +124,7 @@ configUtil.assertClientSecret = (clientSecret) => {
 };
 
 configUtil.assertRedirectUri = (redirectUri) => {
-  if (!redirectUri) {
-    throw new ConfigurationValidationError('Your redirect URI is missing.');
-  } else if (redirectUri.match(/{redirectUri}/)) {
+  if (redirectUri.match(/{redirectUri}/)) {
     throw new ConfigurationValidationError('Replace {redirectUri} with the redirect URI of your Application.');
   }
 };

@@ -58,13 +58,15 @@ connectUtil.createLoginHandler = context => {
         if (err) {
           return next(err);
         }
+        const appBaseUrl = context.options.appBaseUrl || req.headers['hostname']
+        const loginRedirectUri = `${appBaseUrl}${context.options.loginRedirectUri}`
         const nonce = uuid.v4();
         const state = uuid.v4();
         const params = {
           nonce,
           state,
           client_id: context.options.client_id,
-          redirect_uri: context.options.loginRedirectUri,
+          redirect_uri: loginRedirectUri,
           scope: context.options.scope,
           response_type: 'code',
           sessionToken: req.body.sessionToken

@@ -381,11 +381,6 @@ describe('Configuration Validation', () => {
   });
 
   describe('assertRedirectUri', () => {
-    it('should throw if the redirect_uri is not provided', () => {
-      const errorMsg = 'Your redirect URI is missing.';
-      expect(() => assertRedirectUri()).toThrow(errorMsg);
-    });
-
     it('should throw if a redirect_uri matching {redirectUri} is provided', () => {
       const errorMsg = 'Replace {redirectUri} with the redirect URI of your Application.'
       expect(() => assertRedirectUri('{redirectUri}')).toThrow(errorMsg);

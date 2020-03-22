@@ -102,7 +102,7 @@ module.exports = class ExpressOIDC extends EventEmitter {
     }, options);
 
     // Build redirect uri unless explicitly set
-    options.loginRedirectUri = loginRedirectUri || `${appBaseUrl}${options.routes.loginCallback.path}`;
+    options.loginRedirectUri = loginRedirectUri || options.routes.loginCallback.path;
     options.logoutRedirectUri = logoutRedirectUri || `${appBaseUrl}${options.routes.logoutCallback.path}`;
 
     // Validate the redirect_uri param
